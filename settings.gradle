@@ -1,2 +1,5 @@
 rootProject.name='ResumeApp'
 include ':app'
+include ':home'
+include ':portfolio'
+include ':about'
