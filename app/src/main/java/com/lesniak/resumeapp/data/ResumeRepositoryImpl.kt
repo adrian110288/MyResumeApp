@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import com.lesniak.resumeapp.data.models.Location
 import com.lesniak.resumeapp.data.models.Resume
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class ResumeRepositoryImpl @Inject constructor(private val resumeService: ResumeService) :
     ResumeRepository {
 
