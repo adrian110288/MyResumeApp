@@ -17,5 +17,4 @@ class HomeViewModel(private val resumeRepo: ResumeRepository) : ViewModel() {
 
     val resumeState: LiveData<Resume> = resumeRepo.dataState
 
-
 }

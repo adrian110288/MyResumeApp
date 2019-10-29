@@ -16,5 +16,4 @@ interface AppComponent {
     }
 
     fun homeComponent(): HomeComponent.Factory
-
 }
