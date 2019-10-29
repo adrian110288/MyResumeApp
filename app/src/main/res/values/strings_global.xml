@@ -5,9 +5,4 @@
     <string name="fragment_portfolio_label">Portfolio</string>
     <string name="fragment_about_label">About</string>
     
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-    
 </resources>

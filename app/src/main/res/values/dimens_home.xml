@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_portrait_width">72dp</dimen>
+    <dimen name="home_portrait_height">@dimen/home_portrait_width</dimen>
+    <dimen name="home_location_icon_width">20dp</dimen>
+    <dimen name="home_location_icon_height">@dimen/home_location_icon_width</dimen>
+</resources>

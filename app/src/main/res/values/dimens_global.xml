@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="bottom_navigation_view_height">52dp</dimen>
+    <dimen name="layout_horizontal_margin">24dp</dimen>
+    <dimen name="layout_vertical_margin">@dimen/layout_horizontal_margin</dimen>
+</resources>

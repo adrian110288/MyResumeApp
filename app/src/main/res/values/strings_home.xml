@@ -1,0 +1,3 @@
+<resources>
+    <string name="home_location_format">%s, %s</string>
+</resources>

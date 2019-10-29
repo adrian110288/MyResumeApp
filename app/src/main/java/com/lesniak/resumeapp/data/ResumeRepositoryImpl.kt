@@ -2,8 +2,9 @@ package com.lesniak.resumeapp.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.lesniak.resumeapp.data.models.Location
-import com.lesniak.resumeapp.data.models.Resume
+import com.lesniak.resumeapp.data.models.Bio
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -11,19 +12,19 @@ import javax.inject.Singleton
 class ResumeRepositoryImpl @Inject constructor(private val resumeService: ResumeService) :
     ResumeRepository {
 
-    private val _dataState: MutableLiveData<Resume> = MutableLiveData()
+    private val _bioState: MutableLiveData<ResourceState<Bio>> = MutableLiveData()
+    override val bioState: LiveData<ResourceState<Bio>> = _bioState
 
-    override val dataState: LiveData<Resume> = _dataState
+    override suspend fun loadBio() {
 
-    override suspend fun loadResume() {
+        _bioState.value = ResourceState.Loading()
 
-        _dataState.value = Resume(
-            "Name",
-            "Job title",
-            "Bio",
-            Location("London", "UK"),
-            listOf("Skill 1"),
-            emptyList()
-        )
+        withContext(Dispatchers.IO) {
+            val bio = resumeService.getBio()
+            withContext(Dispatchers.Main) {
+                _bioState.value = ResourceState.Success(bio)
+            }
+        }
+
     }
 }

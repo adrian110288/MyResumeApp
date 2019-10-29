@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.lesniak.resumeapp.R
+import com.lesniak.resumeapp.databinding.FragmentHomeBinding
 import com.lesniak.resumeapp.util.appComponent
 import javax.inject.Inject
 
@@ -20,9 +20,11 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+    ): View? =
+        FragmentHomeBinding.inflate(inflater, container, false).apply {
+            lifecycleOwner = this@HomeFragment
+            model = viewModel
+        }.root
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

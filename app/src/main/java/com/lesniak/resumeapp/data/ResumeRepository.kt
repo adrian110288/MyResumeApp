@@ -1,11 +1,11 @@
 package com.lesniak.resumeapp.data
 
 import androidx.lifecycle.LiveData
-import com.lesniak.resumeapp.data.models.Resume
+import com.lesniak.resumeapp.data.models.Bio
 
 interface ResumeRepository {
 
-    val dataState: LiveData<Resume>
+    val bioState: LiveData<ResourceState<Bio>>
 
-    suspend fun loadResume()
+    suspend fun loadBio()
 }

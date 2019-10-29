@@ -1,10 +1,10 @@
 package com.lesniak.resumeapp.data
 
-import com.lesniak.resumeapp.data.models.Resume
+import com.lesniak.resumeapp.data.models.Bio
 import retrofit2.http.GET
 
 interface ResumeService {
 
-    @GET("bd2850e4b0335b73613af4779499b576/raw/3a20ad742d2db6b49f1730384b3eba1ed2c7daaf/resumeapp-profile.json")
-    suspend fun getResume(): Resume
+    @GET("137493acaf58061c34130aba9ea0235d/raw/5f028c05720459a40a70ca751ff56b99b77386ad/resume-bio.json")
+    suspend fun getBio(): Bio
 }
