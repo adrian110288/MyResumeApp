@@ -46,15 +46,15 @@ class NetworkModule {
     @Provides
     fun retrofit(
         @Named("baseUrl") baseUrl: String,
-        callAdapter: CallAdapter.Factory,
-        converterFactory: Converter.Factory,
-        httpClient: OkHttpClient
+        callAdapter: Lazy<CallAdapter.Factory>,
+        converterFactory: Lazy<Converter.Factory>,
+        httpClient: Lazy<OkHttpClient>
     ): Retrofit =
         Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addCallAdapterFactory(callAdapter)
-            .addConverterFactory(converterFactory)
-            .client(httpClient)
+            .addCallAdapterFactory(callAdapter.value)
+            .addConverterFactory(converterFactory.value)
+            .client(httpClient.value)
             .build()
 
     @Singleton
