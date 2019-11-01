@@ -28,5 +28,8 @@ class HomeModule {
         fragment: HomeFragment,
         viewModelFactory: ViewModelProvider.Factory
     ): HomeViewModel =
-        ViewModelProviders.of(fragment, viewModelFactory).get(HomeViewModel::class.java)
+        ViewModelProviders.of(
+            fragment.requireActivity(),
+            viewModelFactory
+        ).get(HomeViewModel::class.java)
 }
