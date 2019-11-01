@@ -5,7 +5,7 @@ import com.lesniak.resumeapp.data.models.Bio
 
 interface ResumeRepository {
 
-    val bioState: LiveData<ResourceState<Bio>>
+    val bioState: LiveData<Result<Bio>>
 
     suspend fun loadBio()
 }

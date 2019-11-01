@@ -3,6 +3,7 @@ package com.lesniak.resumeapp.di
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.lesniak.resumeapp.data.ResumeService
+import dagger.Lazy
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -52,9 +53,9 @@ class NetworkModule {
     ): Retrofit =
         Retrofit.Builder()
             .baseUrl(baseUrl)
-            .addCallAdapterFactory(callAdapter.value)
-            .addConverterFactory(converterFactory.value)
-            .client(httpClient.value)
+            .addCallAdapterFactory(callAdapter.get())
+            .addConverterFactory(converterFactory.get())
+            .client(httpClient.get())
             .build()
 
     @Singleton

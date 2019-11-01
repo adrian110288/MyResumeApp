@@ -12,17 +12,17 @@ import javax.inject.Singleton
 class ResumeRepositoryImpl @Inject constructor(private val resumeService: ResumeService) :
     ResumeRepository {
 
-    private val _bioState: MutableLiveData<ResourceState<Bio>> = MutableLiveData()
-    override val bioState: LiveData<ResourceState<Bio>> = _bioState
+    private val _bioState: MutableLiveData<Result<Bio>> = MutableLiveData()
+    override val bioState: LiveData<Result<Bio>> = _bioState
 
     override suspend fun loadBio() {
 
-        _bioState.value = ResourceState.Loading()
+        _bioState.value = Result.Loading()
 
         withContext(Dispatchers.IO) {
             val bio = resumeService.getBio()
             withContext(Dispatchers.Main) {
-                _bioState.value = ResourceState.Success(bio)
+                _bioState.value = Result.Success(bio)
             }
         }
 
