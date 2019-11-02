@@ -27,6 +27,9 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var skillListLayoutManager: GridLayoutManager
 
+    @Inject
+    lateinit var workExperienceListAdapter: WorkExperienceListAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +52,8 @@ class HomeFragment : Fragment() {
             adapter = skillListAdapter
         }
 
+        experience_list_rv.adapter = workExperienceListAdapter
+
         viewModel.apply {
 
             bioLiveData.observeValue(this@HomeFragment) {
@@ -69,8 +74,20 @@ class HomeFragment : Fragment() {
                 }
             }
 
-            skillList.observeValue(this@HomeFragment) {
-                skillListAdapter.submitList(it)
+            workExperienceListLiveData.observeValue(this@HomeFragment) {
+                viewModel.isWorkExperienceListLoading.value = it is Result.Loading
+                when (it) {
+                    is Result.Success -> viewModel.workExperienceList.value = it.data
+                    is Result.Failure -> {
+                    }
+                }
+            }
+
+            skillList.observeValue(this@HomeFragment) { skillListAdapter.submitList(it) }
+            workExperienceList.observeValue(this@HomeFragment) {
+                workExperienceListAdapter.submitList(
+                    it
+                )
             }
         }
     }

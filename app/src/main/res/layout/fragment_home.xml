@@ -11,131 +11,163 @@
 
     </data>
     
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
         
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/portrait_iv"
-            android:layout_width="@dimen/home_portrait_width"
-            android:layout_height="@dimen/home_portrait_height"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintTop_toTopOf="@+id/guideline_top"
-            tools:src="@tools:sample/avatars" />
-        
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/full_name_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/layout_horizontal_margin"
-            android:text="@{model.bio.fullName}"
-            app:layout_constraintStart_toEndOf="@+id/portrait_iv"
-            app:layout_constraintTop_toTopOf="@+id/portrait_iv"
-            tools:text="Adrian Lesniak" />
-        
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/occupation_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{model.bio.occupation}"
-            app:layout_constraintStart_toStartOf="@+id/full_name_tv"
-            app:layout_constraintTop_toBottomOf="@+id/full_name_tv"
-            tools:text="Software Developer" />
-        
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/location_iv"
-            android:layout_width="@dimen/home_location_icon_width"
-            android:layout_height="@dimen/home_location_icon_height"
-            app:layout_constraintBottom_toBottomOf="@+id/portrait_iv"
-            app:layout_constraintStart_toStartOf="@+id/occupation_tv"
-            app:srcCompat="@drawable/ic_location" />
-        
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/location_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="@{@string/home_location_format(model.bio.location.city, model.bio.location.country)}"
-            app:layout_constraintBottom_toBottomOf="@+id/location_iv"
-            app:layout_constraintStart_toEndOf="@+id/location_iv"
-            app:layout_constraintTop_toTopOf="@+id/location_iv"
-            tools:text="London, United Kingdom" />
-        
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/summary_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_vertical_margin"
-            android:text="@{model.bio.summary}"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/portrait_iv"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" />
-    
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/skills_header_tv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_vertical_margin"
-            android:text="Skills"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/summary_tv" />
-    
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/skills_list_rv"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/layout_vertical_margin"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:clipChildren="false"
-            android:clipToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
-            app:layout_constraintStart_toStartOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/skills_header_tv"
-            app:layout_constraintVertical_bias="0.0" />
+            android:clipToPadding="false">
+            
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/portrait_iv"
+                android:layout_width="@dimen/home_portrait_width"
+                android:layout_height="@dimen/home_portrait_height"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toTopOf="@+id/guideline_top"
+                tools:src="@tools:sample/avatars" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/full_name_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_horizontal_margin"
+                android:text="@{model.bio.fullName}"
+                app:layout_constraintStart_toEndOf="@+id/portrait_iv"
+                app:layout_constraintTop_toTopOf="@+id/portrait_iv"
+                tools:text="Adrian Lesniak" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/occupation_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{model.bio.occupation}"
+                app:layout_constraintStart_toStartOf="@+id/full_name_tv"
+                app:layout_constraintTop_toBottomOf="@+id/full_name_tv"
+                tools:text="Software Developer" />
+            
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/location_iv"
+                android:layout_width="@dimen/home_location_icon_width"
+                android:layout_height="@dimen/home_location_icon_height"
+                app:layout_constraintBottom_toBottomOf="@+id/portrait_iv"
+                app:layout_constraintStart_toStartOf="@+id/occupation_tv"
+                app:srcCompat="@drawable/ic_location" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/location_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{@string/home_location_format(model.bio.location.city, model.bio.location.country)}"
+                app:layout_constraintBottom_toBottomOf="@+id/location_iv"
+                app:layout_constraintStart_toEndOf="@+id/location_iv"
+                app:layout_constraintTop_toTopOf="@+id/location_iv"
+                tools:text="London, United Kingdom" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/summary_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_vertical_margin"
+                android:text="@{model.bio.summary}"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/portrait_iv"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/skills_header_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_vertical_margin"
+                android:text="Skills"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/summary_tv" />
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/skills_list_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_vertical_margin"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/skills_header_tv"
+                app:layout_constraintVertical_bias="0.0" />
+            
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/experience_header_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_vertical_margin"
+                android:text="Experience"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/skills_list_rv" />
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/experience_list_rv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/layout_vertical_margin"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+                app:layout_constraintStart_toStartOf="@+id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@+id/experience_header_tv"
+                app:layout_constraintVertical_bias="0.0" />
+            
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_top"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/layout_vertical_margin" />
+            
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_bottom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/layout_vertical_margin" />
+            
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/layout_horizontal_margin" />
+            
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/layout_horizontal_margin" />
+            
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_bio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="full_name_tv,occupation_tv,location_iv,summary_tv,location_tv,portrait_iv"
+                app:hide="@{model.isBioLoading}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+        
+        </androidx.constraintlayout.widget.ConstraintLayout>
     
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_top"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/layout_vertical_margin" />
-        
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_bottom"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="@dimen/layout_vertical_margin" />
-        
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_start"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/layout_horizontal_margin" />
-        
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_end"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="@dimen/layout_horizontal_margin" />
-        
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group_bio"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:constraint_referenced_ids="full_name_tv,occupation_tv,location_iv,summary_tv,location_tv,portrait_iv"
-            app:hide="@{model.isBioLoading}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="visible" />
-    
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </layout>
