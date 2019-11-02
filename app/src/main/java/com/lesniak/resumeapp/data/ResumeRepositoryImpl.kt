@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.lesniak.resumeapp.data.models.Bio
 import com.lesniak.resumeapp.data.models.Skill
+import com.lesniak.resumeapp.data.models.WorkExperience
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,6 +28,16 @@ class ResumeRepositoryImpl @Inject constructor(private val gitHubGistResumeServi
 
         try {
             emit(Result.Success(gitHubGistResumeService.getSkills()))
+        } catch (e: Exception) {
+            emit(Result.Failure(e))
+        }
+    }
+
+    override suspend fun loadWorkExperience(): LiveData<Result<List<WorkExperience>>> = liveData {
+        emit(Result.Loading)
+
+        try {
+            emit(Result.Success(gitHubGistResumeService.getWorkExperience()))
         } catch (e: Exception) {
             emit(Result.Failure(e))
         }
