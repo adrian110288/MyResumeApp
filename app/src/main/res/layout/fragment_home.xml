@@ -8,10 +8,13 @@
         <variable
             name="model"
             type="com.lesniak.resumeapp.ui.home.HomeViewModel" />
+
     </data>
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_height="match_parent">
         
         <androidx.appcompat.widget.AppCompatImageView
@@ -70,7 +73,30 @@
             app:layout_constraintStart_toStartOf="@+id/guideline_start"
             app:layout_constraintTop_toBottomOf="@+id/portrait_iv"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" />
-        
+    
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/skills_header_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_vertical_margin"
+            android:text="Skills"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/summary_tv" />
+    
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/skills_list_rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_vertical_margin"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/skills_header_tv"
+            app:layout_constraintVertical_bias="0.0" />
+    
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_top"
             android:layout_width="0dp"

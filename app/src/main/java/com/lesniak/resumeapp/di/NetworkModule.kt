@@ -2,7 +2,7 @@ package com.lesniak.resumeapp.di
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.lesniak.resumeapp.data.ResumeService
+import com.lesniak.resumeapp.data.GitHubGistResumeService
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -60,6 +60,6 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun resumeService(retrofit: Retrofit): ResumeService =
-        retrofit.create(ResumeService::class.java)
+    fun resumeService(retrofit: Retrofit): GitHubGistResumeService =
+        retrofit.create(GitHubGistResumeService::class.java)
 }

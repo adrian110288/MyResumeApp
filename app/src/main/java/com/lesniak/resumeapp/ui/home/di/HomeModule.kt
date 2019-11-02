@@ -1,13 +1,16 @@
 package com.lesniak.resumeapp.ui.home.di
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import com.lesniak.resumeapp.data.ResumeRepositoryImpl
 import com.lesniak.resumeapp.ui.home.HomeFragment
 import com.lesniak.resumeapp.ui.home.HomeViewModel
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
 class HomeModule {
@@ -32,4 +35,14 @@ class HomeModule {
             fragment.requireActivity(),
             viewModelFactory
         ).get(HomeViewModel::class.java)
+
+    @HomeScope
+    @Named("spanCount")
+    @Provides
+    fun skillListSpanCount(): Int = 3
+
+    @HomeScope
+    @Provides
+    fun skillListLayoutManager(context: Context, @Named("spanCount") spanCount: Int) =
+        GridLayoutManager(context, spanCount)
 }
