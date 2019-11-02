@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        
+        <variable
+            name="experience"
+            type="com.lesniak.resumeapp.data.models.WorkExperience" />
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/position_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{experience.position}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Founder" />
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/company_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{experience.company}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/position_tv"
+            tools:text="Creative Canvas Solutions Ltd." />
+        
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tenure_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nov 2018 - Present"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/company_tv" />
+    
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
