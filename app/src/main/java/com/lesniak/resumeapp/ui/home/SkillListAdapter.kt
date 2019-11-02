@@ -8,7 +8,7 @@ import com.lesniak.resumeapp.data.models.Skill
 import com.lesniak.resumeapp.databinding.ItemSkillBinding
 import javax.inject.Inject
 
-class SkillListAdapter @Inject constructor(private val diffUtil: SkillListDiffUtil) :
+class SkillListAdapter @Inject constructor(diffUtil: SkillListDiffUtil) :
     ListAdapter<Skill, SkillListAdapter.ViewHolder>(diffUtil) {
 
     class ViewHolder(val binding: ItemSkillBinding) : RecyclerView.ViewHolder(binding.root)
